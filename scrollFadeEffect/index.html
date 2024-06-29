@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<title>Document</title>
+	<style>
+		table{
+			border-style: solid;
+			border-collapse: collapse;
+		}
+
+		td, th{
+			border: 1px solid #999;
+			padding: 0.5rem;
+		}
+	</style>
+</head>
+<body>
+	<table>
+		<colgroup>
+			<col>
+			<col>
+			<col style="background-color: yellow;" span="2">
+		</colgroup>
+		<tr>
+			<td>t=01</td>
+			<td>t=02</td>
+			<td>t=03</td>
+			<td>t=04</td>
+		</tr>
+		<tr>
+			<td>t=01</td>
+			<td>t=02</td>
+		</tr>
+		<tr>
+			<td>t=01</td>
+			<td>t=02</td>
+			<td>t=03</td>
+		</tr>
+	</table>
+
+	<table>
+		<thead>
+			<tr>
+			  <th id="clothes" colspan="3">Clothes</th>
+			</tr>
+			<tr>
+			  <th id="trousers" headers="clothes">Trousers</th>
+			  <th id="skirts" headers="clothes">Skirts</th>
+			  <th id="dresses" headers="clothes">Dresses</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th id="belgium" rowspan="3">Belgium</th>
+			  <th id="antwerp" headers="belgium">Antwerp</th>
+			  <td headers="antwerp belgium clothes trousers">56</td>
+			  <td headers="antwerp belgium clothes skirts">22</td>
+			  <td headers="antwerp belgium clothes dresses">43</td>
+			</tr>
+		  </tbody>
+	</table>
+</body>
+</html>

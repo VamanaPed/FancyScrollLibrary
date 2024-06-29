@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Click Percentage</title>
+<style>
+  #clickableDiv {
+    width: 100px;
+    height: 800px;
+    background-color: lightblue;
+    border: 1px solid blue;
+    text-align: center;
+    line-height: 200px;
+    cursor: pointer;
+  }
+
+  .flex
+  {
+    display: flex;
+  }
+</style>
+</head>
+<body>
+
+<div class="flex">
+    <a href="page2.html">page 2</a>
+    <p>There is stuff in here .</p>
+    <div id="clickableDiv">Click me!</div>
+</div>
+
+<script>
+document.getElementById('clickableDiv').addEventListener('click', function(event) {
+    var divWidth = this.clientWidth;
+    var divHeight = this.clientHeight;
+
+    var clickX = event.offsetX;
+    var clickY = event.offsetY;
+
+    var percentX = (clickX / divWidth) * 100;
+    var percentY = (clickY / divHeight) * 100;
+
+    console.log('Clicked at: (' + clickX + 'px, ' + clickY + 'px)');
+    console.log('Percentage of width: ' + percentX.toFixed(2) + '%');
+    console.log('Percentage of height: ' + percentY.toFixed(2) + '%');
+});
+</script>
+
+</body>
+</html>

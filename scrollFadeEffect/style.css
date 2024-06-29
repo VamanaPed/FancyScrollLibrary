@@ -1,0 +1,14 @@
+@font-face
+{
+    font-family: exo-bold;
+    src: 
+        url("webfontkit/exo-black-webfont.woff2") format("woff2"),
+        url("webfontkit/exo-black-webfont.woff") format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+.pad
+{
+    font-family: exo-bold;
+}

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scroll Percentage</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+  #clickableDiv {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100px;
+    height: 90%;
+    background-color: lightblue;
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 1000; /* Ensures it's above other content */
+  }
+
+  #footer
+  {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 10%;
+    background-color: rgb(230, 173, 173);
+    opacity: 50%;
+
+    text-align: center;
+    line-height: 50px;
+    cursor: pointer;
+    z-index: 1000;
+  }
+  
+  #content {
+    height: 2000px; /* Simulated long content for scrolling */
+    padding-top: 50px; /* Ensures content doesn't start under the fixed div */
+  }
+
+  .pad
+  {
+    padding: 25%;
+  }
+</style>
+</head>
+<body>
+
+<div id="clickableDiv">Click me!</div>
+
+<div id="footer"></div>
+
+<div id="content">
+  <!-- Long content to enable scrolling -->
+  <div class="pad">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore corrupti repudiandae voluptatum unde ex modi.</div>
+  <div class="pad">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo, minima labore id culpa odit deserunt saepe vitae, itaque a, tempore eligendi! Iure aliquid quos aut sint, facere doloribus nihil enim iste suscipit natus doloremque quibusdam? Molestiae aliquam eveniet nisi reiciendis consequuntur iste illo maxime consectetur repellendus odio! Beatae, praesentium quo?</div>
+  <div class="pad">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum, consequatur sed rerum vitae accusamus laboriosam natus, esse aspernatur beatae assumenda enim optio, aliquid fugit? Totam officiis in quae distinctio iure sunt minima impedit rem? Voluptate earum consectetur blanditiis. Cumque eius voluptates at libero laborum sit sed sequi consequatur quam. Ullam quae impedit labore veritatis, omnis quidem, ex minima eos, fugiat iste error perspiciatis repudiandae laborum expedita! Soluta nam repudiandae alias explicabo a doloribus officiis temporibus?</div>
+  <div class="pad">Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus voluptate autem esse repellat nostrum fuga asperiores aspernatur, totam vero magnam quae reprehenderit molestiae eum nobis maxime? Numquam omnis porro natus, atque recusandae nihil dolorem rerum praesentium vero animi vel minima quia quasi? Ratione aperiam illum eaque rerum, odit perferendis nostrum, minus magni distinctio consequuntur asperiores optio voluptates quaerat nemo recusandae officiis assumenda, velit debitis numquam. Placeat, obcaecati doloremque non, suscipit excepturi officiis quae omnis et, quis eos sequi soluta quam explicabo ullam inventore voluptatum architecto tempore recusandae molestiae beatae nulla consequatur! Aliquid eum, laborum repudiandae corrupti nesciunt sapiente adipisci asperiores!</div>
+</div>
+
+<script>
+document.getElementById('clickableDiv').addEventListener('click', function(event) {
+    var windowHeight = window.innerHeight;
+    var scrollableHeight = document.body.scrollHeight - windowHeight;
+
+    var clickY = event.clientY;
+    // var percentDown = (clickY / windowHeight) * 100;
+    var percentDown = (clickY / this.clientHeight) * 100;
+
+    var scrollTo = (percentDown / 100) * scrollableHeight;
+
+    window.scrollTo({
+        top: scrollTo,
+        behavior: 'smooth'  // Smooth scrolling animation
+    });
+
+    console.log('Clicked at: (' + event.pageX + 'px, ' + event.pageY + 'px)');
+    console.log('Percentage down the page: ' + percentDown.toFixed(2) + '%');
+});
+</script>
+
+</body>
+</html>
